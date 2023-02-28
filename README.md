@@ -17,7 +17,7 @@ If you want users to install a specific branch, run
 pip install git+https://github.com/LSDOlab/lsdo_project_template.git@branch
 ```
 
-**Enabled by**: Copying the ``setup.py`` file, changing your repository name and version, 
+**Enabled by**: Copying the `setup.py` file, changing your repository name and version, 
 and adding all your dependencies into the list `install_requires`.
 
 ## Installation instructions for developers
