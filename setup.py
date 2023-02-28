@@ -6,6 +6,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'numpy',
+        'pytest',
 #         'scipy',
 #         'pint',
 #         'sphinx-rtd-theme',
