@@ -1,0 +1,6 @@
+name: dummy
+on:
+  push:
+    branches:
+      - master
+      - dev
