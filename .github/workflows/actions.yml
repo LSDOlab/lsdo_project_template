@@ -46,4 +46,4 @@ jobs:
       # Finally, we run the package unit-tests on the specified OS and python versions.
     - name: Test with pytest
       run: |
-        pytest lsdo_project_template
+        pytest
