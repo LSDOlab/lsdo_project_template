@@ -7,6 +7,9 @@ setup(
     install_requires=[
         'numpy',
         'pytest',
+        'myst-nb',
+        'sphinx_rtd_theme',
+        'sphinx-collections',
 #         'scipy',
 #         'pint',
 #         'sphinx-rtd-theme',
