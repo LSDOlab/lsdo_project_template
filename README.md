@@ -72,7 +72,7 @@ git push
 
 5. Create pull request on GitHub with descriptions for changes.
  - Fill out pull request template
- - Assign reviewers (repo admins?)
+ - Assign reviewers (repo admin(s)?)
 
 ## Pull Request Review
 When a pull request is submitted, reviews should be done in a timely manner (it will be time-consuming to remember what the code does if the code takes a week to be reviewed)
