@@ -86,5 +86,5 @@ When reviewing a pull request, approve when:
 When rejecting a pull request, write a precise description of what needs to improved/fixed in the comment section.
 
 ## Tests
-For test driven development, create tests BEFORE code implementation.
+For test driven development, create tests before code implementation.
 Templates from `tests/template.py` can be used. Create tests in `tests` directory and write test functions with `test_` prefix in test files.
