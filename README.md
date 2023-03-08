@@ -40,13 +40,13 @@ pip install -e ./lsdo_project_template
 # Developer Guidelines
 
 ## Pull Requests
-Before contributing to `main`, make sure the following requirements are met.
+Before contributing to the `main` branch, make sure the following requirements are met:
 - [ ] All existing tests have passed
 - [ ] No local merge conflicts
 - [ ] Code is commented
 - [ ] Added tests for new features
 
-Once you finish making changes  on your branch, create a pull request.
+Once you finish making changes on your branch, create a pull request.
 To create the pull request, follow the steps:
 
 1. Pull from `main` branch
@@ -70,10 +70,12 @@ pytest -rP # tests while displaying print statements
 git push
 ```
 
-5. Create GitHub pull request with descriptions for changes.
+5. Create pull request on GitHub with descriptions for changes.
+ - Fill out pull request template
+ - Assign reviewers (repo admin(s)?)
 
 ## Pull Request Review
-When a pull request is submitted, reviews should be done in a timely manner (it will be time-confusing to remember what the code does if the code takes a week to be reviewed)
+When a pull request is submitted, reviews should be done in a timely manner (it will be time-consuming to remember what the code does if the code takes a week to be reviewed)
 
 When reviewing a pull request, approve when:
  - Requirements above are met
@@ -84,5 +86,5 @@ When reviewing a pull request, approve when:
 When rejecting a pull request, write a precise description of what needs to improved/fixed in the comment section.
 
 ## Tests
-For test driven development, create tests BEFORE code implementation.
+For test driven development, create tests before code implementation.
 Templates from `tests/template.py` can be used. Create tests in `tests` directory and write test functions with `test_` prefix in test files.
