@@ -30,7 +30,6 @@ getting_started
 tutorials
 custom_1
 custom_2
-tutorials
 examples
 api
 autoapi/index
