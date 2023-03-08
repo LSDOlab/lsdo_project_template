@@ -20,11 +20,16 @@ Include figures from the relevant paper and citation.
         }
 ```
 
+<!-- Remove/add custom pages from/to toc as per your package's requirement -->
+
 ```{toctree}
 :maxdepth: 1
 :hidden:
 
 getting_started
+tutorials
+custom_1
+custom_2
 tutorials
 examples
 api
