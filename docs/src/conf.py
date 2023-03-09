@@ -123,9 +123,15 @@ collections = {
       'source': '../examples/tutorials', # source relative to path of makefile, not wrt /src
       'target': 'tutorials/',
       'ignore': [],
-    #   'active': True,
-      'clean': True,
-      'final_clean': True,
+    #   'active': True,         # default: True. If False, this collection is ignored during doc build.
+    #   'safe': True,           # default: True. If True, any problem will raise an exception and stops the build.
+      'clean': True,            # default: True. If False, no cleanup is done before collections get executed.
+      'final_clean': True,      # default: True. If True, a final cleanup is done at the end of a Sphinx build.
+    #   'tags': ['my_collection', 'dummy'],     # List of tags, which trigger an activation of the collection.
+                                        # Should be used together with active set to False, 
+                                        # otherwise the collection gets always executed.
+                                        # Use -t tag option of sphinx-build command to trigger related collections.
+                                        # e.g. : `sphinx-build -b html -t dummy . _build/html`
    },
 
     # convert_examples collection converts the contents inside `/examples` 
@@ -133,12 +139,14 @@ collections = {
     'convert_examples': {
       'driver': 'writer_function',  # uses custom WriterFunctionDriver written by Anugrah
       'from'  : '../examples/',     # source relative to path of makefile, not wrt /src
-      'source': py2nb,             # custom function written above in `conf.py`
-      'target': 'examples/',       # target was a file for original FunctionDriver, e.g., 'target': 'examples/temp.txt'
-    #   'active': True,            # the original FunctionDriver was supposed to write only 1 file.
-      'clean': True,
-      'final_clean': True,
-    #   'write_result': True,      # this prevents original FunctionDriver from writing to the target file
+      'source': py2nb,              # custom function written above in `conf.py`
+      'target': 'examples/',        # target was a file for original FunctionDriver, e.g., 'target': 'examples/temp.txt'
+                                    # the original FunctionDriver was supposed to write only 1 file.
+    #   'active': True,   
+    #   'safe': True,         
+      'clean': True,       
+      'final_clean': True,      
+    #   'write_result': True,   # this prevents original FunctionDriver from writing to the target file
    },
 }
 
