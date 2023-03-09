@@ -25,9 +25,11 @@ This will build all the html pages locally and you can verify if the documentati
 opening the `docs/_build/html/welcome.html` on your browser.
 
 ## Hosting
-On your/lsdolab *Read the Docs* account, add your github repository, and link the `/docs` directory.
+On your/lsdolab *Read the Docs* account, **import** your project **manually** from github repository, and link the `/docs` directory.
 Make sure to edit `requirements.txt` with dependencies for *Read the Docs* to build the documentation exactly
 as in your local build.
+Optionally, edit the `.readthedocs.yml` in the project root directory for building with specific operating systems or versions of Python.
 After you commit and push, *Read the Docs* will build your package on its servers and once its complete,
 you will see your documentation online.
-The website address will be generated based on your *Read the Docs* project name.
+The default website address will be generated based on your *Read the Docs* project name as `https://<proj_name>.readthedocs.io/`.
+You can also customize the URL on *Read the Docs*, if needed.
