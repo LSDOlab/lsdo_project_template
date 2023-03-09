@@ -39,6 +39,17 @@ extensions = [
     "sphinx.ext.viewcode", # adds the source code for classes and functions in auto generated api ref
     "sphinxcontrib.collections", # adds files from outside src and executes functions before Sphinx builds
 ]
+
+myst_enable_extensions = [
+    # "amsmath",
+    # "colon_fence",
+    # "deflist",
+    "dollarmath", # allow parsing: Inline math: $...$ , and Display (block) math: $$...$$
+                  # Additionally if myst_dmath_allow_labels=True is set (the default):
+                  # Display (block) math with equation label: $$...$$ (1)
+    # "html_image",
+]
+
 autoapi_dirs = ["../../lsdo_project_template/core"]
 
 root_doc = 'welcome' # default: 'index'
