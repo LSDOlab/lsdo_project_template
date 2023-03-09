@@ -14,7 +14,7 @@ from running the script for better understanding for the users.
 :maxdepth: 1
 :hidden:
 
-_collections/tutorials/jupyter_tutorial
-_collections/tutorials/modopt_tutorial
-_collections/tutorials/simple_tutorial
+_temp/tutorials/jupyter_tutorial
+_temp/tutorials/modopt_tutorial
+_temp/tutorials/simple_tutorial
 ```

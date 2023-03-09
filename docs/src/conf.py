@@ -9,18 +9,16 @@
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
-#
+
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../lsdo_project_template/core')) # for autodoc
-# sys.path.insert(0, os.path.abspath('../examples'))
-
+sys.path.insert(0, os.path.abspath('../../lsdo_project_template/core'))     # for autodoc
 
 # -- Project information -----------------------------------------------------
 
 project = 'lsdo_project_template'
-copyright = '2022, anugrah'
-author = 'anugrah'
+copyright = '2022, Anugrah'
+author = 'Anugrah'
 version = '0.1'
 # release = 0.1.0rtc
 
@@ -30,7 +28,6 @@ version = '0.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-# extensions = ["sphinx.ext.autodoc"]
 extensions = [
     "sphinx_rtd_theme",
     "autoapi.extension", # autoapi is not needed when using autodoc
@@ -44,18 +41,17 @@ extensions = [
 ]
 autoapi_dirs = ["../../lsdo_project_template/core"]
 
-# root_doc = 'index'
-root_doc = 'welcome'
+root_doc = 'welcome' # default: 'index'
 
 # source_suffix = {
 #     '.rst': 'restructuredtext',
-#     # '.md': 'markdown',
-#     # '.ipynb': 'Jupyter notebook',
+#     '.md': 'markdown',
+#     '.ipynb': 'Jupyter notebook',
 #     }
 
-# # source_parsers = {'.md': 'myst_nb',
-# #                 '.ipynb': 'myst_nb',
-# #                 }
+# source_parsers = {'.md': 'myst_nb',
+#                 '.ipynb': 'myst_nb',
+#                 }
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -63,7 +59,6 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-# exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'welcome.md']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 
@@ -71,14 +66,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
-# html_theme = 'alabaster'
-# html_theme = 'classic'
-# html_theme = 'sphinxdoc'
-# html_theme = 'nature'
-# html_theme = 'bizstyle'
-html_theme = 'sphinx_rtd_theme'
 
+html_theme = 'sphinx_rtd_theme' # other theme options: 'alabaster', 'classic', 'sphinxdoc', 'nature', 'bizstyle', ...
+
+# html_theme_options for sphinx_rtd_theme
 html_theme_options = {
     # 'analytics_id': 'G-XXXXXXXXXX',  #  Provided by Google in your dashboard
     # 'analytics_anonymize_ip': False,
@@ -87,16 +78,13 @@ html_theme_options = {
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
     'vcs_pageview_mode': '',
-    'style_nav_header_background': '#2980B9',
-    # 'style_nav_header_background': 'white',
-    # Toc options
-    # 'collapse_navigation': True,
-    'collapse_navigation': False,
+    'style_nav_header_background': '#2980B9',   # other valid colors: 'white', ...
+    # toc options
+    'collapse_navigation': False,   # default: True
     'sticky_navigation': True,
     'navigation_depth': 4,
     'includehidden': True,
-    # 'titles_only': False
-    'titles_only': True
+    'titles_only': True     # default: False
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -104,37 +92,16 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ['_static']
 
-
-# extensions = [
-#     "myst_nb",
-#     "autoapi.extension",
-#     "sphinx.ext.napoleon",
-#     "sphinx.ext.viewcode",
-# ]
-# autoapi_dirs = ["../src"]
-
-import sys
-# import os
-
-# import nbformat
-# from nbformat.v4 import new_notebook, new_code_cell, new_markdown_cell
-
-# nb = new_notebook()
-# with open(sys.argv[1]) as f:
-#     code = f.read()
-
-# ex_name = sys.argv[1][3:-3]
-# nb.cells.append(new_markdown_cell('# '+ ex_name))
-# nb.cells.append(new_code_cell(code))
-# nbformat.write(nb, sys.argv[1][:-3]+'.ipynb')
-
 import os
 import nbformat
 from nbformat.v4 import new_notebook, new_code_cell, new_markdown_cell
 
+# Function used by collections for converting .py files from examples
+# to .ipynb and writing those into `_temp/target/` directory before Sphinx builds
+
 def py2nb(config):
     examples = [filename for filename in os.listdir(config['from']) if filename.startswith("ex_")]
-    # os.mkdir(config['target']+'\examples') # This mkdir is necessary since
+    # os.mkdir(config['target']) 
     for ex in examples:
         nb = new_notebook()
         with open(config['from']+ex) as f:
@@ -147,9 +114,10 @@ def py2nb(config):
 
     return
 
-
-
 collections = {
+    
+    # copy_tutorials collection copies the contents inside `/tutorials` 
+    # directory into `/src/_temp/tutorials`
    'copy_tutorials': {
       'driver': 'copy_folder',
       'source': '../examples/tutorials', # source relative to path of makefile, not wrt /src
@@ -160,6 +128,8 @@ collections = {
       'final_clean': True,
    },
 
+    # convert_examples collection converts the contents inside `/examples` 
+    # directory and writes into `/src/_temp/examples`
     'convert_examples': {
       'driver': 'writer_function',  # uses custom WriterFunctionDriver written by Anugrah
       'from'  : '../examples/',     # source relative to path of makefile, not wrt /src
@@ -171,3 +141,9 @@ collections = {
     #   'write_result': True,      # this prevents original FunctionDriver from writing to the target file
    },
 }
+
+collections_target = '_temp'        # default : '_collections', the default storage location for all collections
+collections_clean  = True           # default : True, all configured target locations get wiped out at the beginning
+                                    # can be overwritten for individual collection by setting value for the 'clean' key
+collections_final_clean  = True     # default : True, all collections start their clean-up routine after a Sphinx build is done
+                                    # can be overwritten for individual collection by setting value for the 'final_clean' key
