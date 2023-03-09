@@ -9,13 +9,14 @@ setup(
         'pytest',
         'myst-nb',
         'sphinx_rtd_theme',
+        'sphinx-autoapi',
+        'numpydoc',
+        'gitpython',
         # 'sphinx-collections',
-        'sphinx-collections @ git+https://github.com/anugrahjo/sphinx-collections.git'
+        'sphinxcontrib-collections @ git+https://github.com/anugrahjo/sphinx-collections.git'
 #         'scipy',
 #         'pint',
-#         'sphinx-rtd-theme',
 #         'sphinx-code-include',
 #         'jupyter-sphinx',
-#         'numpydoc',
     ],
 )
