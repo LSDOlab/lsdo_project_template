@@ -10,13 +10,11 @@ and they get progressively more complicated.
 It is recommeded that the tutorials also include mathematical equations and outputs/visualization 
 from running the script for better understanding for the users.
 
-<!-- ```{include} /tutorials_toc.md -->
-<!-- ``` -->
-
 ```{toctree}
 :maxdepth: 1
 :hidden:
 
-tutorials/jupyter_tutorial
-tutorials/modopt_tutorial
+_collections/tutorials/jupyter_tutorial
+_collections/tutorials/modopt_tutorial
+_collections/tutorials/simple_tutorial
 ```

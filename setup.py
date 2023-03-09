@@ -9,7 +9,8 @@ setup(
         'pytest',
         'myst-nb',
         'sphinx_rtd_theme',
-        'sphinx-collections',
+        # 'sphinx-collections',
+        'sphinx-collections @ git+https://github.com/anugrahjo/sphinx-collections.git'
 #         'scipy',
 #         'pint',
 #         'sphinx-rtd-theme',
