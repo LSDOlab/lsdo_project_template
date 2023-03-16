@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('../../lsdo_project_template/core'))     # fo
 # -- Project information -----------------------------------------------------
 
 project = 'lsdo_project_template'
-copyright = '2022, Anugrah'
+copyright = '2023, Anugrah'
 author = 'Anugrah'
 version = '0.1'
 # release = 0.1.0rtc
@@ -61,8 +61,9 @@ root_doc = 'welcome' # default: 'index'
 
 # source_suffix = {
 #     '.rst': 'restructuredtext',
-#     '.md': 'markdown',
-#     '.ipynb': 'Jupyter notebook',
+#     '.md': 'myst-nb',
+#     '.myst': 'myst-nb',
+#     '.ipynb': 'myst-nb',
 #     }
 
 # source_parsers = {'.md': 'myst_nb',

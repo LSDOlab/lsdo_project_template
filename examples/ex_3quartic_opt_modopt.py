@@ -1,4 +1,4 @@
-'''Example 3:'''
+'''Example 3'''
 import numpy as np
 from modopt.api import Problem
 
