@@ -1,3 +1,8 @@
+'''Example 1: An example written as a Python file (.py) with explanations given as comments. 
+Note that the title and description on the web page are generated based on the first docstring in the Python file. 
+***Docstring syntax:*** *```"""Title: Description"""```*.
+Examples 2 and 3 demonstrate this with a cleaner docstring.'''
+
 from csdl import Model
 
 # minimize x^4 + y^4 subject to x>=0, x+y=1, x-y>=1.

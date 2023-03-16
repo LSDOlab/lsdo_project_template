@@ -32,8 +32,11 @@ extensions = [
     "sphinx_rtd_theme",
     "autoapi.extension", # autoapi is not needed when using autodoc
     # "sphinx.ext.autodoc",
+    # "sphinx.ext.autosummary", # autosummary summarizes each function/method/attribute contained in file
+                              # with the first sentence in its docstring
     # "sphinx.ext.napoleon", # another extension to read numpydoc style but 'numpydoc' extension looks better
     "numpydoc", # numpydoc already includes autodoc
+    "sphinx_copybutton",   # allows copying code embedded in the docs in .md or .ipynb
     # "myst_parser", # compiles .md, .myst files
     "myst_nb", # compiles .md, .myst, .ipynb files
     "sphinx.ext.viewcode", # adds the source code for classes and functions in auto generated api ref
@@ -49,6 +52,8 @@ myst_enable_extensions = [
                   # Display (block) math with equation label: $$...$$ (1)
     # "html_image",
 ]
+
+nb_execution_mode = 'off' # turns off execution of Jupyter notebooks at build-time
 
 autoapi_dirs = ["../../lsdo_project_template/core"]
 
@@ -78,7 +83,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 
-html_theme = 'sphinx_rtd_theme' # other theme options: 'alabaster', 'classic', 'sphinxdoc', 'nature', 'bizstyle', ...
+html_theme = 'sphinx_rtd_theme' # other theme options: 'sphinx_rtd_theme', 'alabaster', 'classic', 'sphinxdoc', 'nature', 'bizstyle', ...
 
 # html_theme_options for sphinx_rtd_theme
 html_theme_options = {
@@ -125,6 +130,87 @@ def py2nb(config):
 
     return
 
+def py2md(config):
+    examples = [filename for filename in os.listdir(config['from']) if filename.startswith("ex_")]
+    # os.mkdir(config['target']) 
+    for ex in examples:
+        # nb = new_notebook()
+        with open(config['from']+ex) as f:
+            code = f.read()
+            lines = code.splitlines()
+
+        ex_name = ex[3:-3]
+        with open(config['target']+ex[:-3]+'.md', 'w') as g:
+            # g.write('# '+ ex_name + '\n\n')
+            g.write('# ' + lines[0][3:-3] + '\n\n')
+            g.write('```python\n')
+            g.write(code)
+            g.write('\n```')
+
+
+    return
+
+import re
+
+def split_first_string_between_quotes(code_string, quotes):
+    if quotes == "'":
+      check = re.search("'''(.+?)'''", code_string)
+      print(type(code_string))
+    elif quotes == '"':
+      check = re.search('"""(.+?)"""', code_string)
+    
+    if check:
+      docstring = check.group(1)
+      out_strings = docstring.split(':', 1)
+      print(out_strings)
+      if len(out_strings)==2:
+        title, desc = out_strings[0].strip(), out_strings[1].strip()
+      else:
+        title, desc = out_strings[0].strip(), ''
+
+      return title, desc
+    
+    else:
+        raise SyntaxError('Docstring for title and description is not declared correctly')
+    
+
+from shutil import copyfile
+
+def anyex2doc(config):
+    # Convert Python files to markdown and write to /_temp/examples
+    ex_py = [filename for filename in os.listdir(config['from']) if (filename.startswith("ex_") and filename.endswith(".py"))]
+    # os.mkdir(config['target']) 
+    for ex in ex_py:
+        # nb = new_notebook()
+        with open(config['from']+ex) as f:
+            code = f.read()
+            # lines = code.splitlines()
+            no_line_breaks = ' '.join(code.splitlines())
+
+            if code[0:3] == "'''":      
+                title, desc = split_first_string_between_quotes(no_line_breaks, "'")
+            elif code[0:3] == '"""':
+                title, desc = split_first_string_between_quotes(no_line_breaks, '"')
+            else:
+                raise SyntaxError('Docstring for title and description is not declared correctly')
+
+        ex_name = ex[3:-3]
+        with open(config['target']+ex[:-3]+'.md', 'w') as g:
+            # g.write('# '+ ex_name + '\n\n')
+            # g.write('# ' + lines[0][3:-3] + '\n\n')
+            g.write('# ' + title + '\n')
+            g.write(desc + '\n\n')
+            g.write('```python\n')
+            g.write(code)
+            g.write('\n```')
+
+    # Copy Python notebooks into /_temp/examples
+    ex_ipynb = [filename for filename in os.listdir(config['from']) if (filename.startswith("ex_") and filename.endswith(".ipynb"))]
+    for ex in ex_ipynb:
+        copyfile(config['from']+ex, config["target"]+ex)
+
+    return
+
 collections = {
     
     # copy_tutorials collection copies the contents inside `/tutorials` 
@@ -150,7 +236,7 @@ collections = {
     'convert_examples': {
       'driver': 'writer_function',  # uses custom WriterFunctionDriver written by Anugrah
       'from'  : '../examples/',     # source relative to path of makefile, not wrt /src
-      'source': py2nb,              # custom function written above in `conf.py`
+      'source': anyex2doc,              # custom function written above in `conf.py`
       'target': 'examples/',        # target was a file for original FunctionDriver, e.g., 'target': 'examples/temp.txt'
                                     # the original FunctionDriver was supposed to write only 1 file.
     #   'active': True,   

@@ -1,3 +1,4 @@
+'''Example 2 : Description of example 2'''
 import numpy as np
 from modopt.api import Problem
 

@@ -1,9 +1,10 @@
 # Examples
 
-Unlike tutorials, examples are generated from Python files (.py) and
+Unlike tutorials, examples can also be generated from Python files (.py) in addition
+to Jupyter notebooks (.ipynb),
 and is more of a collection of run scripts for reference/benchmarking.
 Examples may contain documentation in the form of comments.
-However, outputs/visualization from running the script is excluded.
+However, outputs/visualization from running the script is excluded if you are using Python files.
 
 
 ```{toctree}
