@@ -30,17 +30,17 @@ version = '0.1'
 # ones.
 extensions = [
     "sphinx_rtd_theme",
-    "autoapi.extension", # autoapi is not needed when using autodoc
+    "autoapi.extension",      # autoapi is not needed when using autodoc
     # "sphinx.ext.autodoc",
-    # "sphinx.ext.autosummary", # autosummary summarizes each function/method/attribute contained in file
-                              # with the first sentence in its docstring
-    # "sphinx.ext.napoleon", # another extension to read numpydoc style but 'numpydoc' extension looks better
-    "numpydoc", # numpydoc already includes autodoc
-    "sphinx_copybutton",   # allows copying code embedded in the docs in .md or .ipynb
-    # "myst_parser", # compiles .md, .myst files
-    "myst_nb", # compiles .md, .myst, .ipynb files
-    "sphinx.ext.viewcode", # adds the source code for classes and functions in auto generated api ref
-    "sphinxcontrib.collections", # adds files from outside src and executes functions before Sphinx builds
+    # "sphinx.ext.autosummary", # autosummary summarizes each module(__init__)/function/method/attribute 
+                                # contained in file with the first sentence in its docstring
+    # "sphinx.ext.napoleon",    # another extension to read numpydoc style but 'numpydoc' extension looks better
+    "numpydoc",                 # numpydoc already includes autodoc
+    "sphinx_copybutton",        # allows copying code embedded in the docs in .md or .ipynb
+    # "myst_parser",            # compiles .md, .myst files
+    "myst_nb",                  # compiles .md, .myst, .ipynb files
+    "sphinx.ext.viewcode",      # adds the source code for classes and functions in auto generated api ref
+    "sphinxcontrib.collections",    # adds files from outside src and executes functions before Sphinx builds
 ]
 
 myst_enable_extensions = [
@@ -66,8 +66,8 @@ root_doc = 'welcome' # default: 'index'
 #     '.ipynb': 'myst-nb',
 #     }
 
-# source_parsers = {'.md': 'myst_nb',
-#                 '.ipynb': 'myst_nb',
+# source_parsers = {'.md': 'myst-nb',
+#                 '.ipynb': 'myst-nb',
 #                 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -218,7 +218,7 @@ collections = {
     # directory into `/src/_temp/tutorials`
    'copy_tutorials': {
       'driver': 'copy_folder',
-      'source': '../examples/tutorials', # source relative to path of makefile, not wrt /src
+      'source': '../tutorials', # source relative to path of makefile, not wrt /src
       'target': 'tutorials/',
       'ignore': [],
     #   'active': True,         # default: True. If False, this collection is ignored during doc build.
