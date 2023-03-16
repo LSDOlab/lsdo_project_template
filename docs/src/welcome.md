@@ -27,6 +27,7 @@ Include figures from the relevant paper and citation.
 :hidden:
 
 getting_started
+background
 tutorials
 custom_1
 custom_2
