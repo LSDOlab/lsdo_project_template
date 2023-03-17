@@ -12,11 +12,6 @@ setup(
         'sphinx-autoapi',
         'numpydoc',
         'gitpython',
-        # 'sphinx-collections',
-        'sphinxcontrib-collections @ git+https://github.com/anugrahjo/sphinx-collections.git'
-#         'scipy',
-#         'pint',
-#         'sphinx-code-include',
-#         'jupyter-sphinx',
+        'sphinxcontrib-collections @ git+https://github.com/anugrahjo/sphinx-collections.git', # 'sphinx-collections',
     ],
 )
