@@ -38,4 +38,3 @@ python:
 # add the path to the Conda environment file, relative to the root of the project.
 # conda:
 #   environment: environment.yml
-  
