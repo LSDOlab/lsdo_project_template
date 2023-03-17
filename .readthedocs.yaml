@@ -18,7 +18,7 @@ build:
 # Build documentation in the docs/ directory with Sphinx
 # To specify the path to the conf.py file, relative to the root of the project,
 sphinx:
-   configuration: docs/src/conf.py
+   configuration: docs/conf.py
    # Can also specify the builder type for the Sphinx documentation, and turn warnings into errors
    # builder: html
    # fail_on_warning: true
