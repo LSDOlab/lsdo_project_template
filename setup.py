@@ -9,6 +9,7 @@ setup(
         'pytest',
         'myst-nb',
         'sphinx_rtd_theme',
+        'sphinx-copybutton',
         'sphinx-autoapi',
         'numpydoc',
         'gitpython',
