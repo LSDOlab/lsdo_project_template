@@ -32,6 +32,6 @@ tutorials
 custom_1
 custom_2
 examples
-api
-autoapi/index
+autodoc
+autoapi
 ```

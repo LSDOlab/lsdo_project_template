@@ -30,11 +30,13 @@ version = '0.1'
 # ones.
 extensions = [
     "sphinx_rtd_theme",
-    "autoapi.extension",      # autoapi is not needed when using autodoc
-    # "sphinx.ext.autodoc",
-    # "sphinx.ext.autosummary", # autosummary summarizes each module(__init__)/function/method/attribute 
+    "autoapi.extension",        # autoapi is not needed when using autodoc, __init__() of a class is not considered a method
+    "sphinx.ext.autodoc",       # autodoc organizes info better than autoapi
+                                # with separate list of attributes and methods for classes
+    "sphinx.ext.autosummary",   # autosummary summarizes each module(__init__)/function/method/attribute 
                                 # contained in file with the first sentence in its docstring
-    # "sphinx.ext.napoleon",    # another extension to read numpydoc style but 'numpydoc' extension looks better
+    # "sphinx.ext.napoleon",      # another extension to read numpydoc style but unlike 'numpydoc' ext,
+    #                             # napoleon doesn't distinguish between attributes and methods of a class
     "numpydoc",                 # numpydoc already includes autodoc
     "sphinx_copybutton",        # allows copying code embedded in the docs in .md or .ipynb
     # "myst_parser",            # compiles .md, .myst files
@@ -55,7 +57,19 @@ myst_enable_extensions = [
 
 nb_execution_mode = 'off' # turns off execution of Jupyter notebooks at build-time
 
+# autodoc
+autodoc_typehints = 'description'
+
+# autoapi
 autoapi_dirs = ["../../lsdo_project_template/core"]
+autoapi_root = 'autoapi'
+autoapi_type = 'python'
+autoapi_file_patterns = ['*.py', '*.pyi']
+autoapi_options = [ 'members', 'undoc-members', 'private-members', 'show-inheritance', 
+                   'show-module-summary', 'special-members', 'imported-members', ]
+autoapi_add_toctree_entry = False
+autoapi_member_order = 'groupwise'
+autoapi_python_class_content = 'class' # 'both'
 
 root_doc = 'welcome' # default: 'index'
 
