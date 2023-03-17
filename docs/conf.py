@@ -71,7 +71,7 @@ autoapi_add_toctree_entry = False
 autoapi_member_order = 'groupwise'
 autoapi_python_class_content = 'class' # 'both'
 
-root_doc = 'src/welcome' # default: 'index'
+root_doc = 'index' # default: 'index' , previously 'src/welcome'
 
 # source_suffix = {
 #     '.rst': 'restructuredtext',
@@ -90,7 +90,7 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store', 'src/welcome.md']
 
 
 # -- Options for HTML output -------------------------------------------------

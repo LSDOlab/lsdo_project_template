@@ -11,7 +11,6 @@ and add the example files directly into the toctree of this main examples page.
 
 ```{toctree}
 :maxdepth: 1
-:hidden:
 
 examples/basic
 examples/advanced

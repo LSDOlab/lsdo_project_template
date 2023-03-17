@@ -15,7 +15,6 @@ and add the tutorial files directly into the toctree of this main tutorials page
 
 ```{toctree}
 :maxdepth: 1
-:hidden:
 
 tutorials/basic
 tutorials/advanced
