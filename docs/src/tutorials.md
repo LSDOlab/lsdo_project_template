@@ -1,7 +1,7 @@
 # Tutorials
 
 These tutorials are generated from Jupyter notebooks (.ipynb) and
-walks the reader through example scripts providing detailed
+walks the reader through Python scripts providing detailed
 step-by-step instructions.
 Each tutorial contains mix of code and text that shows the
 functionality of your package.
@@ -10,11 +10,13 @@ and they get progressively more complicated.
 It is recommeded that the tutorials also include mathematical equations and outputs/visualization 
 from running the script for better understanding for the users.
 
+If no classification of tutorials is required, just remove the subpages for tutorials
+and add the tutorial files directly into the toctree of this main tutorials page.
+
 ```{toctree}
 :maxdepth: 1
 :hidden:
 
-_temp/tutorials/jupyter_tutorial
-_temp/tutorials/modopt_tutorial
-_temp/tutorials/simple_tutorial
+tutorials/basic
+tutorials/advanced
 ```

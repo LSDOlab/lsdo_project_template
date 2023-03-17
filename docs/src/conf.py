@@ -131,23 +131,32 @@ def py2nb(config):
 
     return
 
-def py2md(config):
-    examples = [filename for filename in os.listdir(config['from']) if filename.startswith("ex_")]
-    # os.mkdir(config['target']) 
-    for ex in examples:
-        # nb = new_notebook()
-        with open(config['from']+ex) as f:
-            code = f.read()
-            lines = code.splitlines()
+import glob
 
-        ex_name = ex[3:-3]
-        with open(config['target']+ex[:-3]+'.md', 'w') as g:
+def py2md(config):
+    # root_dir needs a trailing slash (i.e. /root/dir/)
+    for ex in glob.iglob(config['target'] + '**/ex_*.py', recursive=True):
+        with open(ex) as f:
+            code = f.read()
+            # lines = code.splitlines()
+            no_line_breaks = ' '.join(code.splitlines())
+
+            if code[0:3] == "'''":      
+                title, desc = split_first_string_between_quotes(no_line_breaks, "'")
+            elif code[0:3] == '"""':
+                title, desc = split_first_string_between_quotes(no_line_breaks, '"')
+            else:
+                raise SyntaxError('Docstring for title and description is not declared correctly')
+
+        # ex_name = ex[3:-3]
+        with open(ex[:-3]+'.md', 'w') as g:
             # g.write('# '+ ex_name + '\n\n')
-            g.write('# ' + lines[0][3:-3] + '\n\n')
+            # g.write('# ' + lines[0][3:-3] + '\n\n')
+            g.write('# ' + title + '\n')
+            g.write(desc + '\n\n')
             g.write('```python\n')
             g.write(code)
             g.write('\n```')
-
 
     return
 
@@ -195,7 +204,7 @@ def anyex2doc(config):
             else:
                 raise SyntaxError('Docstring for title and description is not declared correctly')
 
-        ex_name = ex[3:-3]
+        # ex_name = ex[3:-3]
         with open(config['target']+ex[:-3]+'.md', 'w') as g:
             # g.write('# '+ ex_name + '\n\n')
             # g.write('# ' + lines[0][3:-3] + '\n\n')
@@ -232,12 +241,44 @@ collections = {
                                         # e.g. : `sphinx-build -b html -t dummy . _build/html`
    },
 
-    # convert_examples collection converts the contents inside `/examples` 
-    # directory and writes into `/src/_temp/examples`
-    'convert_examples': {
+#     # convert_examples collection converts the contents inside `/examples` 
+#     # directory and writes into `/src/_temp/examples`
+#     'convert_examples': {
+#       'driver': 'writer_function',  # uses custom WriterFunctionDriver written by Anugrah
+#       'from'  : '../examples/',     # source relative to path of makefile, not wrt /src
+#       'source': anyex2doc,              # custom function written above in `conf.py`
+#       'target': 'examples/',        # target was a file for original FunctionDriver, e.g., 'target': 'examples/temp.txt'
+#                                     # the original FunctionDriver was supposed to write only 1 file.
+#     #   'active': True,   
+#     #   'safe': True,         
+#       'clean': True,       
+#       'final_clean': True,      
+#     #   'write_result': True,   # this prevents original FunctionDriver from writing to the target file
+#    },
+
+   'copy_examples': {
+      'driver': 'copy_folder',
+      'source': '../examples', # source relative to path of makefile, not wrt /src
+      'target': 'examples/',
+      'ignore': [],
+    #   'active': True,         # default: True. If False, this collection is ignored during doc build.
+    #   'safe': True,           # default: True. If True, any problem will raise an exception and stops the build.
+      'clean': True,            # default: True. If False, no cleanup is done before collections get executed.
+      'final_clean': True,      # default: True. If True, a final cleanup is done at the end of a Sphinx build.
+    #   'tags': ['my_collection', 'dummy'],     # List of tags, which trigger an activation of the collection.
+                                        # Should be used together with active set to False, 
+                                        # otherwise the collection gets always executed.
+                                        # Use -t tag option of sphinx-build command to trigger related collections.
+                                        # e.g. : `sphinx-build -b html -t dummy . _build/html`
+   },
+
+    # convert_examples collection converts all .py files to .md files recursively inside `_temp/examples` 
+    # directory and also extracts the docstrings from the .py files to generate title and descriptions
+    # for those examples
+   'convert_examples': {
       'driver': 'writer_function',  # uses custom WriterFunctionDriver written by Anugrah
-      'from'  : '../examples/',     # source relative to path of makefile, not wrt /src
-      'source': anyex2doc,              # custom function written above in `conf.py`
+      'from'  : '_temp/examples/',     # source relative to path of makefile, not wrt /src
+      'source': py2md,              # custom function written above in `conf.py`
       'target': 'examples/',        # target was a file for original FunctionDriver, e.g., 'target': 'examples/temp.txt'
                                     # the original FunctionDriver was supposed to write only 1 file.
     #   'active': True,   
