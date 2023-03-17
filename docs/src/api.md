@@ -1,4 +1,4 @@
-# API Reference (autoapi)
+# API reference 
 This section contains auto-generated API reference for the package.
 
 ```{toctree}

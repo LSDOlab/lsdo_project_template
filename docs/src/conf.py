@@ -31,10 +31,10 @@ version = '0.1'
 extensions = [
     "sphinx_rtd_theme",
     "autoapi.extension",        # autoapi is not needed when using autodoc, __init__() of a class is not considered a method
-    "sphinx.ext.autodoc",       # autodoc organizes info better than autoapi
-                                # with separate list of attributes and methods for classes
-    "sphinx.ext.autosummary",   # autosummary summarizes each module(__init__)/function/method/attribute 
-                                # contained in file with the first sentence in its docstring
+    # "sphinx.ext.autodoc",       # autodoc organizes info better than autoapi
+    #                             # with separate list of attributes and methods for classes
+    # "sphinx.ext.autosummary",   # autosummary summarizes each module(__init__)/function/method/attribute 
+    #                             # contained in file with the first sentence in its docstring
     # "sphinx.ext.napoleon",      # another extension to read numpydoc style but unlike 'numpydoc' ext,
     #                             # napoleon doesn't distinguish between attributes and methods of a class
     "numpydoc",                 # numpydoc already includes autodoc
