@@ -12,7 +12,7 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../../lsdo_project_template/core'))     # for autodoc
+sys.path.insert(0, os.path.abspath('../lsdo_project_template/core'))     # for autodoc
 
 # -- Project information -----------------------------------------------------
 
@@ -61,8 +61,8 @@ nb_execution_mode = 'off' # turns off execution of Jupyter notebooks at build-ti
 autodoc_typehints = 'description'
 
 # autoapi
-autoapi_dirs = ["../../lsdo_project_template/core"]
-autoapi_root = 'autoapi'
+autoapi_dirs = ["../lsdo_project_template/core"]
+autoapi_root = 'src/autoapi'
 autoapi_type = 'python'
 autoapi_file_patterns = ['*.py', '*.pyi']
 autoapi_options = [ 'members', 'undoc-members', 'private-members', 'show-inheritance', 
@@ -71,7 +71,7 @@ autoapi_add_toctree_entry = False
 autoapi_member_order = 'groupwise'
 autoapi_python_class_content = 'class' # 'both'
 
-root_doc = 'welcome' # default: 'index'
+root_doc = 'src/welcome' # default: 'index'
 
 # source_suffix = {
 #     '.rst': 'restructuredtext',
@@ -90,7 +90,7 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['README.md', '_build', 'Thumbs.db', '.DS_Store']
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -303,7 +303,7 @@ collections = {
    },
 }
 
-collections_target = '_temp'        # default : '_collections', the default storage location for all collections
+collections_target = 'src/_temp'        # default : '_collections', the default storage location for all collections
 collections_clean  = True           # default : True, all configured target locations get wiped out at the beginning
                                     # can be overwritten for individual collection by setting value for the 'clean' key
 collections_final_clean  = True     # default : True, all collections start their clean-up routine after a Sphinx build is done
