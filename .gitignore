@@ -132,4 +132,7 @@ dmypy.json
 
 # Directory with files generated before building documentation
 _temp
+
+# Sphinx
 _autosummary
+_conf_master.py
