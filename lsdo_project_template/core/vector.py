@@ -75,6 +75,18 @@ class Vector():
         '''
         Return the sum of input numpy vector with the Vector() object
 
+        Extended summary of the add method, if needed.
+
+        .. note::
+            Any specific note for the user
+
+        .. versionadded:: 0.3.0
+
+        .. deprecated:: 0.5.0
+            Warnings for users if an object is deprecated.
+            `add` will be removed in lsdo_project_template 1.0.0, it will be replaced by
+            `add_new` since the latter works with many more types of arrays.
+
         Parameters
         ----------
         y : np.ndarray
@@ -84,15 +96,20 @@ class Vector():
         -------
         np.ndarray
             Sum of the input vector and the Vector() object
-        
-        Examples
+
+        Raises
+        ------
+        ValueError
+            If shape of `y` is not same as the shape of the `Vector()` object.
+
+        Warns
+        -----
+        DeprecationWarning
+            Use this optional section if your method has any warnings.
+
+        Warnings
         --------
-        >>> vec = Vector(10)
-        >>> print(vec.data)
-        >>> import numpy as np
-        >>> x = np.ones((10,))
-        >>> y = vec.add(x)
-        >>> print(y)
+        Ensure that the numpy vector `y` has the same shape as the `Vector()` object.
 
         See also
         --------
@@ -100,9 +117,30 @@ class Vector():
 
         Notes
         -----
-        **Return values**
+        **Return values**:
+        `add()` method returns a *numpy* object whereas `iadd()` does not return anything
+        
+        Examples
+        --------
+        An extended example the functions like a tutorial.
+        
+        Initialize the vector object.
 
-        `add()` method will return a *numpy* object whereas `iadd()` does not return anything
+        >>> vec = Vector(10)
+
+        Print to see the data inside the initialized vector.
+
+        >>> print(vec.data)
+        [0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+
+        Now test the `add()` method.
+
+        >>> import numpy as np
+        >>> x = np.ones((10,))
+        >>> y = vec.add(x)
+        >>> print(y)
+        [10. 10. 10. 10. 10. 10. 10. 10. 10. 10.]
+        
         '''
         if y.size != self.size:
             raise ValueError("Input numpy array is not of the same shape")
