@@ -13,6 +13,10 @@ Summary of major changes from the previous release.
 
 - None
 
+## Old Features Improved
+
+- None
+
 ## New Deprecations
 
 - None
