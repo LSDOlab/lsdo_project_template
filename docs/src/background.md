@@ -8,5 +8,7 @@ You can add references in the `references.bib` file and cite them
 in the page like this {cite:p}`perez2011python`. 
 You can also include a list of references cited at the end as shown below.
 
+## Bibliography
+
 ```{bibliography} references.bib
 ```
