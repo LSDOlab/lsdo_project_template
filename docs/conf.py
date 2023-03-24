@@ -42,7 +42,8 @@ extensions = [
 # sphinxcontrib.bibtex options
 bibtex_bibfiles = ['src/references.bib']
 
-myst_enable_extensions = ["dollarmath"] # allow parsing: Inline math: $...$ , and Display (block) math: $$...$$
+myst_title_to_header = True
+myst_enable_extensions = ["dollarmath", "amsmath", "tasklist"]
 nb_execution_mode = 'off'
 
 # autodoc options
