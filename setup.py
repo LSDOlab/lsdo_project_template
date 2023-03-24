@@ -14,5 +14,6 @@ setup(
         'numpydoc',
         'gitpython',
         'sphinxcontrib-collections @ git+https://github.com/anugrahjo/sphinx-collections.git', # 'sphinx-collections',
+        'sphinxcontrib-bibtex',
     ],
 )
