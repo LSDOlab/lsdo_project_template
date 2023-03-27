@@ -29,6 +29,9 @@ setup(
         'gitpython',
         'sphinxcontrib-collections @ git+https://github.com/anugrahjo/sphinx-collections.git', # 'sphinx-collections',
         'sphinxcontrib-bibtex',
+        'setuptools',
+        'wheel',
+        'twine',
     ],
     classifiers=[
         'Programming Language :: Python',
@@ -44,6 +47,6 @@ setup(
         'Topic :: Software Development',
         'Topic :: Software Development :: Documentation',
         'Topic :: Software Development :: Testing',
-        'Topic :: Software Development :: Libraries,
+        'Topic :: Software Development :: Libraries',
     ],
 )
