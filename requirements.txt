@@ -11,3 +11,4 @@ sphinx-autoapi
 numpydoc
 gitpython
 git+https://github.com/anugrahjo/sphinx-collections.git
+sphinxcontrib-bibtex
