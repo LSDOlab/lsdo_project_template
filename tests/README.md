@@ -44,7 +44,7 @@ When reviewing a pull request, approve when:
  - GitHub actions tests pass
  - The code runs locally on your computer (run cases to try and break their code)
 
-When rejecting a pull request, write a precise description of what needs to improved/fixed in the comment section.
+When rejecting a pull request, write a precise description of what needs to improved/fixed in the comment section. 
 
 ## Tests
 For test driven development, create tests before code implementation.
