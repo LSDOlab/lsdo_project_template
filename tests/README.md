@@ -39,7 +39,7 @@ git push
 When a pull request is submitted, reviews should be done in a timely manner (it will be time-consuming to remember what the code does if the code takes a week to be reviewed)
 
 When reviewing a pull request, approve when:
- - Requirements above are met
+ - Requirements above are met 
    - Make sure code is commented cleanly 
  - GitHub actions tests pass
  - The code runs locally on your computer (run cases to try and break their code)
