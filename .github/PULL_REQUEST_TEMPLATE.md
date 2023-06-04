@@ -7,11 +7,11 @@
 
 ## Checklist
 <!-- Make sure PR will have minimal conflicts -->
-- [ ] All existing tests pass
-- [ ] No local merge conflicts
-- [ ] Code is commented
-- [ ] Tests written for new features (if needed)
-- [ ] Version number is updated (if needed)
+- All existing tests pass
+- No local merge conflicts
+- Code is commented
+- Tests written for new features (if needed)
+- Version number is updated (if needed)
 
 <!-- OPTIONAL: -->
 ## Optional
