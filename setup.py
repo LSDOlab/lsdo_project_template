@@ -22,6 +22,7 @@ setup(
         'numpy',
         'pytest',
         'myst-nb',
+        'sphinx',
         'sphinx_rtd_theme',
         'sphinx-copybutton',
         'sphinx-autoapi',
