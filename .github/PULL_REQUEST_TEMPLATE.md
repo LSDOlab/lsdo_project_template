@@ -1,9 +1,16 @@
 ## Summary
 ### Overview
-<!-- Provide an overview of what this commit did-->
+<!-- Provide an overview of what this commit did and why it was necessary-->
 
-### Context
-<!-- Why was this change needed-->
+## Changes (Check all boxes that apply)
+- [ ] Added tests
+- [ ] Added examples
+- [ ] Updated docs
+- [ ] Refactor code
+- [ ] Added functionality
+- [ ] Fixed bugs (Patch version increase)
+- [ ] Changed API (Major/Minor version increase)
+- [ ] New release (Major/Minor/Patch version increase)
 
 ## Checklist
 <!-- Make sure PR will have minimal conflicts -->
