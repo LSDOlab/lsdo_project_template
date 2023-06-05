@@ -46,5 +46,5 @@ jobs:
       # Finally, we run the package unit-tests on the specified OS and python versions.
     - name: Test with pytest
       run: |
-        pip install git+https://github.com/LSDOlab/lsdo_project_template.git
+        pip install git+https://github.com/LSDOlab/lsdo_test.git
         lsdo_test \*
