@@ -16,6 +16,7 @@
 A template repository for LSDOlab projects
 
 This repository serves as a template for all LSDOlab projects with regard to documentation, testing and hosting of open-source code.
+Note that template users need to edit the README badge definitions for their respective packages.
 
 *README.md file contains high-level information about your package: it's purpose, high-level instructions for installation and usage.*
 
