@@ -3,11 +3,11 @@
 
 numpy
 pytest
-sphinx
+sphinx==6.2.1
 myst-nb
 sphinx_rtd_theme==1.1.1   # Defining exact versions to ensure things don't break
 sphinx-copybutton
-sphinx-autoapi
+sphinx-autoapi==3.0.0
 numpydoc
 gitpython
 git+https://github.com/anugrahjo/sphinx-collections.git
