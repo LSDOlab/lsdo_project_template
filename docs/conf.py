@@ -48,12 +48,10 @@ extensions = [
 # sphinxcontrib.bibtex options
 bibtex_bibfiles = ['src/references.bib']
 
+# myst_nb options
 myst_title_to_header = True
 myst_enable_extensions = ["dollarmath", "amsmath", "tasklist"]
 nb_execution_mode = 'off'
-
-# autodoc options
-# autodoc_typehints = 'description'
 
 # autoapi options
 autoapi_dirs = ["../lsdo_project_template/core"]
@@ -67,17 +65,6 @@ autoapi_member_order = 'groupwise'
 autoapi_python_class_content = 'class' # 'both' or '__init'
 
 root_doc = 'index'
-
-# source_suffix = {
-#     '.rst': 'restructuredtext',
-#     '.md': 'myst-nb',
-#     '.myst': 'myst-nb',
-#     '.ipynb': 'myst-nb',
-#     }
-
-# source_parsers = {'.md': 'myst-nb',
-#                 '.ipynb': 'myst-nb',
-#                 }
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -126,10 +113,12 @@ def py2md(config):
         with open(ex) as f:
             code = f.read()
             no_line_breaks = ' '.join(code.splitlines())
+            single_start = 1e20 if code.find("'''") == -1 else code.find("'''")
+            double_start = 1e20 if code.find('"""') == -1 else code.find('"""')
 
-            if code[0:3] == "'''":      
+            if single_start < double_start:      
                 title, desc = split_first_string_between_quotes(no_line_breaks, "'")
-            elif code[0:3] == '"""':
+            elif double_start < single_start:
                 title, desc = split_first_string_between_quotes(no_line_breaks, '"')
             else:
                 raise SyntaxError('Docstring for title and description is not declared correctly')
