@@ -39,6 +39,9 @@ extensions = [
     "sphinxcontrib.bibtex",         # for references and citations
 ]
 
+import autoapi as aa
+print(aa.__version__)
+
 # sphinxcontrib.bibtex options
 bibtex_bibfiles = ['src/references.bib']
 
