@@ -42,6 +42,7 @@ setup(
         'sphinx_rtd_theme',
         'sphinx-copybutton',
         'sphinx-autoapi==2.1.1',
+        'astriod<3'
         'numpydoc',
         'gitpython',
         'sphinxcontrib-collections @ git+https://github.com/anugrahjo/sphinx-collections.git', # 'sphinx-collections',
