@@ -3,7 +3,7 @@
 
 numpy==1.24.3
 pytest==7.3.1
-sphinx==5.3.0
+sphinx
 myst-nb==0.17.2
 sphinx_rtd_theme==1.1.1 
 sphinx-copybutton==0.5.2
