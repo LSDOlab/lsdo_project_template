@@ -42,6 +42,9 @@ extensions = [
 import autoapi as aa
 print(aa.__version__)
 
+import sphinx as aa
+print(aa.__version__)
+
 # sphinxcontrib.bibtex options
 bibtex_bibfiles = ['src/references.bib']
 
