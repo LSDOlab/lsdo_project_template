@@ -45,6 +45,9 @@ print(aa.__version__)
 import sphinx as aa
 print(aa.__version__)
 
+from pip import _internal
+_internal.main(['list'])
+
 # sphinxcontrib.bibtex options
 bibtex_bibfiles = ['src/references.bib']
 
