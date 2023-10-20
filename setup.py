@@ -41,7 +41,7 @@ setup(
         'sphinx==5.3.0',
         'sphinx_rtd_theme',
         'sphinx-copybutton',
-        'sphinx-autoapi==2.1.1',
+        'sphinx-autoapi==2.1.0',
         'astriod<3',
         'numpydoc',
         'gitpython',
