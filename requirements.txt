@@ -1,5 +1,7 @@
-# Includes the list of all dependencies required to run setup() and use the package
-# Also used in testing workflow and to host the documentation on Read the Docs
+# Includes the list of all dependencies required to run setup() and 
+# use the package in some new environment.
+# E.g., for creating a conda environement, or to be used in testing workflow, 
+# or to host the documentation on Read the Docs
 
 numpy==1.24.3
 pytest==7.3.1
